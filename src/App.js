@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import './App.css'
+
+import {
+  Routes,
+  Route
+} from 'react-router-dom';
+
+import Home from './components/Home/Home.jsx';
+import Video from './components/video/Video.jsx';
+import Friends from './components/friends/Friends.jsx';
+import Marketplace from './components/marketplace/Marketplace.jsx';
+import Notifications from './components/notifications/Notifications.jsx';
+import Menu from './components/menu/Menu.jsx'
+import Layout from './components/Layout/Layout.jsx';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route path="/" element={<Home/>}/>
+          <Route path="home" element={<Home/>}/>
+          <Route path="video" element={<Video/>}/>
+          <Route path="friends" element={<Friends/>}/>
+          <Route path="marketplace" element={<Marketplace/>}/>
+          <Route path="notifications" element={<Notifications/>}/>
+          <Route path="menu" element={<Menu/>}/>
+        </Route>
+        
+      </Routes>
     </div>
   );
 }
