@@ -1,7 +1,6 @@
 
 
-function Friend ({fRequest}){
-  
+function Friend ({fRequest, handleConfirm, handleDelete}){
   return(
     <div className="account">
         <div className="account-profile">
@@ -20,8 +19,11 @@ function Friend ({fRequest}){
              <span>nmutual friends</span>
           </div>
           <div className="acc-buttons">
-            <button>Confirm</button>
-            <button>Delete</button>
+            <button onClick={(e)=>{
+                handleConfirm(fRequest.userId,e)}}>Confirm</button>
+            <button onClick={(e)=>{
+              handleDelete(fRequest.userId,e)
+            }}>Delete</button>
           </div>
         </div>
       </div>
