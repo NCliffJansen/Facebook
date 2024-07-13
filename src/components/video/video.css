@@ -34,19 +34,12 @@
 }
 
 .videos-category span{
-  padding: 0 4px 0 4px; 
+  padding: 6px; 
   border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
-.videos-category span:link{
-  background-color: white;
-}
-
-
-.videos-category span:active{
-  background-color: lightblue;
-  color: blue;
-}
 
 .videos-category span:hover{
   background-color: lightblue;

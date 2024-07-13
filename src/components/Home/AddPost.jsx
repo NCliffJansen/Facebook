@@ -10,7 +10,7 @@ function AddPost () {
         <span>Whats On Your Mind?</span>
       </div>
       <div className="add-image">
-         <i>jhgg</i>
+         <i className="fa-solid fa-image icon"></i>
       </div>
     </div>
     )

@@ -11,7 +11,7 @@ function Home  () {
     <>
       <div className="main">
         <AddPost/>
-        <div className="story">
+        <div className="story-section">
           <Create/>
           <Story/>
         </div>

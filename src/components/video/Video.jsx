@@ -22,7 +22,7 @@ function Video  () {
       </div>
       <div className="videos-category">
         <span>Live</span>
-        <span className="h">For you</span>
+        <span>For you</span>
         <span>Reels</span>
         <span>Following</span>
       </div>

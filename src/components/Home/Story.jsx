@@ -3,13 +3,11 @@
 
 function Story () {
   return (
-    <div className="post">
+    <div className="story">
       <div className="story-profile">
         <img src="" alt="pp"/>
       </div>
-      <div>
-        s1
-      </div>
+      <span className="story-profile-name">Namggfhdjdjdhshhdhsgshsjshhdhdggsge</span>
     </div>
     
     )

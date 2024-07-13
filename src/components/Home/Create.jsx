@@ -2,7 +2,7 @@
 
 function Create () {
   return (
-    <div className="post create">
+    <div className="story create">
       <div className="create-story">
         <i className="fa-solid fa-book"></i>
         <span>create story</span>
