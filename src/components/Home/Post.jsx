@@ -54,11 +54,11 @@ function Post({post}){
           </div>
         </div>
       </div>
-      <div className="caption">
-        <span>{post.title}</span>
+      <div className="post-title">
+        <p>{post.title}</p>
       </div>
-      <div className="posting-profile-post">
-          <span>{post.body}</span>
+      <div className="post-body">
+          <p>{post.body}</p>
       </div>
       <div className="post-likes-comments">
         <span>{likes} likes</span>

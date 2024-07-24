@@ -4,6 +4,7 @@ html,body{
 }
 body{
   background-color: lightgray;
+  font-family: Arial;
 }
 /* Slide from right */
 .slide-right-enter {

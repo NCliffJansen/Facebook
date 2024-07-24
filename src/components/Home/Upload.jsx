@@ -7,7 +7,7 @@ const Upload = () => {
   const [isLoading, seIsLoading]=useState(false)
   const [title, setTitle]=useState("");
   const[body, setBody]=useState("")
-  const[audience, setAudience]=useState("friends")
+  const[audience, setAudience]=useState("public")
   
   const post={
     userId:"1",
@@ -24,13 +24,19 @@ const Upload = () => {
   const handleSubmit=(e)=>{
     e.preventDefault();
     seIsLoading(true)
-    fetch("http://localhost:3001/posts", {
+    setTimeout(()=>{
+      fetch("http://localhost:3001/posts", {
       method:"POST",
       headers:{
         "Content-Type":"application/json"
       },
       body:JSON.stringify(post)
-    }).then(()=>seIsLoading(false))
+    }).then(()=>{
+      seIsLoading(false)
+      navigate("/")
+    })
+    },1000)
+    
   }
   
   const handleBack =(e)=>{
@@ -60,9 +66,9 @@ const Upload = () => {
         onChange={(e)=>setAudience(e.target.value)}
         value={audience}
         >
+          <option>public</option>
           <option>friends</option>
-          <option>friends of friends</option>
-          <option>global</option>
+          <option>only me</option>
         </select>
         <input
           placeHolder="post title"

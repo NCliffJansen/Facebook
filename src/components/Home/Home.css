@@ -210,20 +210,24 @@ img{
   opacity: 0.7;
 }
 
-.caption{
+.post-title{
   width: 100%;
   height: auto;
 }
 
-.caption span{
-  width: 100%;
-  height: auto;
-  padding: 10px;
+.post-title p{
+  margin: 10px;
+  padding: 0;
+  opacity: 0.7;
 }
 
-.posting-profile-post{
+.post-body{
   width: 100%;
   height: auto;
+}
+.post-body p{
+  margin: 10px;
+  padding: 0;
 }
 
 .post-likes-comments{

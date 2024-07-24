@@ -1,12 +1,7 @@
-import './video.css'
-
-import Post from '../Home/Post.jsx'
-import {posts} from '../../data/data.js'
+import './video.css';
 
 function Video  () { 
   
-  const list = posts.map((post)=> <Post post={post}/>
-  )
   return (
   <div className="main">
     <div className="video-head">
@@ -27,7 +22,6 @@ function Video  () {
       </div>
     </div>
     <div>
-      {list}
     </div>
   </div>
   )
