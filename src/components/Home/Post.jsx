@@ -1,6 +1,34 @@
-
+import {useState} from 'react'
+import useFetch from '../../hooks/useFetch.js'
 
 function Post({post}){
+  const {data:users}=useFetch("http://localhost:3001/users");
+  const[likes, setLikes]=useState(post.details.likes);
+  
+  const handleDelete=()=>{
+    fetch('http://localhost:3001/posts/' +post.id, {
+      method:"DELETE"
+    })
+  }
+  const handleLike = ()=>{
+    setLikes(likes+1);
+    fetch('http://localhost:3001/posts/'+post.id, {
+    method: 'PATCH',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+  body: JSON.stringify(
+    {
+      details:{
+        likes:likes,
+        comments:0,
+        shares:0
+      }
+    })
+    })
+  }
+  
+  
   return(
   <div className="all-post">
     <div className="posting-profile-details">
@@ -9,35 +37,36 @@ function Post({post}){
         </div>
         <div className = "middle">
           <div className="posting-profile-name">
-            <span>{post.name}</span>
+            {users&&users.map((user)=>{
+             return user.id===post.userId&&<span>{user.name}</span>})}
           </div>
           <div className="shared-details">
             <span>{post.time}</span>
-            <span>{post.sharing}</span>
+            <span>{post.audience}</span>
           </div>
         </div>
         <div className="right">
           <div>
-            <i className="fa-solid fa-bell"></i>
+            <i className="fa-solid fa-ellipsis"></i>
           </div>
-          <div>
+          <div onClick={handleDelete}>
             <i className="fa-solid fa-x"></i>
           </div>
         </div>
       </div>
       <div className="caption">
-        <span>{post.caption}</span>
+        <span>{post.title}</span>
       </div>
       <div className="posting-profile-post">
-          post
+          <span>{post.body}</span>
       </div>
       <div className="post-likes-comments">
-        <span>nlikes</span>
-        <span>ncomments</span>
-        <span>nshared</span>
+        <span>{likes} likes</span>
+        <span>{post.details.comments} comments</span>
+        <span>{post.details.shares} shares</span>
       </div>
       <div className="post-reaction">
-         <div>
+         <div onClick={handleLike}>
           <i className="fa-solid fa-thumbs-up"></i>
          </div>
          <div>

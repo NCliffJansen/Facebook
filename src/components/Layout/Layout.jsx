@@ -1,8 +1,10 @@
 import './Layout.css';
-import {Link, Outlet} from 'react-router-dom';
+import { Link,Outlet, useLocation } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Header from '../Home/HHeader.jsx';
 
-function Layout () {
+function Layout ({direction}) {
+  const location=useLocation();
   const addHeader= ()=>{
     const header=document.querySelector(".home-header");
     header.style.display="flex";
@@ -16,14 +18,14 @@ function Layout () {
     const notifications = document.querySelector(".notifications-count");
     notifications.style.display="none";
   }
-  const toggle= (e)=>{
-    const element=e.target.parentNode;
-        if(element.toString()==="http://localhost:3000/home"){
+  const toggle= ()=>{
+    const location=window.location.toString();
+        if(location.includes("home")){
           addHeader();
         }else{
           removeHeader();
         }
-        if(e.target.parentNode.toString()==="http://localhost:3000/notifications"){
+        if(location.includes("/notifications")){
           clearNotifications();
         }
   }
@@ -32,7 +34,7 @@ function Layout () {
     <div className="nav">
       <Header/>
       <ul className ="nav-bar" 
-        onClick={(e)=>toggle(e)}>
+        onClick={toggle}>
         <li className="home">
           <Link to="/home"><i className="fa-solid fa-house icon"></i></Link>
         </li>
@@ -53,8 +55,16 @@ function Layout () {
           <Link to="/menu"><i className="fa-solid fa-bars icon"></i></Link>
         </li>
       </ul>
+      <TransitionGroup>
+      <CSSTransition
+        key={location.key}
+        timeout={300}
+        classNames={`slide-${direction}`}
+      >
       <Outlet/>
-    </div>
+      </CSSTransition>
+    </TransitionGroup>
+  </div>
     )
 }
 

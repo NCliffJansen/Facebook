@@ -7,7 +7,7 @@ function Story () {
       <div className="story-profile">
         <img src="" alt="pp"/>
       </div>
-      <span className="story-profile-name">Namggfhdjdjdhshhdhsgshsjshhdhdggsge</span>
+      <span className="story-profile-name">Tom Chalie</span>
     </div>
     
     )

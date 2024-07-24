@@ -31,10 +31,19 @@
   align-items:center;
   text-align: center;
   outline: 1px solid lightgray;
+  background: white;
   margin: 2px 20px 2px;
   padding: 5px;
   border-radius: 20px;
   font-size: 0.9rem;
+}
+.input:hover{
+  background: lightgray;
+}
+.input a{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
 }
 
 .add-image{
@@ -110,31 +119,19 @@
   border-radius: 20px;
   outline: 2px solid blue;
 }
-@keyframes myScroll{
-  from {
-  
-    width: 0%;
-  }
-  to{
-  
-    width: 100%;
-  }
-}
 
 .story .story-profile-name{
-  animation: myScroll 4s linear 1s infinite alternate;
   position: absolute;
-  text-align:end;
   bottom:20px;
   left:10px;
   font-size: 0.7rem;
   font-weight: 700;
   opacity: 0.8;
   max-width: 75px;
-  width:0%;
-  text-overflow: auto;
-  overflow: scroll;
-  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
 }
 
 .story-profile .viewed{
@@ -144,7 +141,7 @@
 /*posts*/
 
 .all-post{
-  margin: 4px 0 0;
+  margin: 3px 0 0;
   display: flex;
   flex-direction: column; 
   height: auto;
@@ -243,10 +240,11 @@ img{
 .post-reaction{
   display: flex; 
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .post-reaction div{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -258,4 +256,19 @@ img{
 
 .post-reaction div:hover{
   background-color: lightgray;
+}
+
+.pop-up{position: absolute;
+  bottom: 100%; /* Position the popup above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1;
+  
 }

@@ -1,12 +1,11 @@
 import './video.css'
 
 import Post from '../Home/Post.jsx'
-import {videoPosts} from '../../data/data.js'
+import {posts} from '../../data/data.js'
 
 function Video  () { 
-    
-    
-  const list = videoPosts.map((post)=> <Post post={post}/>
+  
+  const list = posts.map((post)=> <Post post={post}/>
   )
   return (
   <div className="main">
